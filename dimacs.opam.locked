@@ -1,0 +1,51 @@
+opam-version: "2.0"
+name: "dimacs"
+version: "~dev"
+synopsis: "A Menhir parser for the DIMACS format"
+description: "A Menhir parser for the DIMACS format"
+maintainer: "Pierre Villemot"
+authors: "Pierre Villemot"
+license: "LICENSE"
+tags: ["topics" "Yet another parser :D" "your" "project"]
+homepage: "https://github.com/Halbaroth/dimacs"
+bug-reports: "https://github.com/Halbaroth/dimacs/issues"
+depends: [
+  "base" {= "v0.16.2"}
+  "base-bigarray" {= "base"}
+  "base-domains" {= "base"}
+  "base-nnp" {= "base"}
+  "base-threads" {= "base"}
+  "base-unix" {= "base"}
+  "cppo" {= "1.6.9"}
+  "csexp" {= "1.5.2"}
+  "dune" {= "3.10.0"}
+  "dune-configurator" {= "3.10.0"}
+  "ocaml" {= "5.0.0"}
+  "ocaml-compiler-libs" {= "v0.12.4"}
+  "ocaml-config" {= "3"}
+  "ocaml-system" {= "5.0.0"}
+  "ocamlfind" {= "1.9.6"}
+  "ppx_compare" {= "v0.16.0"}
+  "ppx_derivers" {= "1.2.1"}
+  "ppx_deriving" {= "5.2.1"}
+  "ppx_sexp_conv" {= "v0.16.0"}
+  "ppxlib" {= "0.30.0"}
+  "result" {= "1.5"}
+  "sexplib0" {= "v0.16.0"}
+  "stdlib-shims" {= "0.3.0"}
+]
+build: [
+  ["dune" "subst"] {dev}
+  [
+    "dune"
+    "build"
+    "-p"
+    name
+    "-j"
+    jobs
+    "@install"
+    "@runtest" {with-test}
+    "@doc" {with-doc}
+  ]
+]
+dev-repo: "git+https://github.com/Halbaroth/dimacs.git"
