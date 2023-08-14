@@ -20,6 +20,7 @@
    ocaml
    dune
    base
+   menhir
    ppx_sexp_conv
    ppx_compare
    ppx_deriving)
